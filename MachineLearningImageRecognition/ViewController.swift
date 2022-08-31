@@ -50,6 +50,14 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
                     if results.count > 0{
                         
                         let topResult = results.first
+                        
+                        DispatchQueue.main.sync {
+                            
+                            let confidenceLevel = (topResult?.confidence ?? 0) * 100
+                            self.resultLabel.text = "\(confidenceLevel)% its \(topResult!.identifier)"
+                            
+                            
+                        }
                     }
                 }
             }
