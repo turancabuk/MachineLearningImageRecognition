@@ -54,7 +54,8 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
                         DispatchQueue.main.sync {
                             
                             let confidenceLevel = (topResult?.confidence ?? 0) * 100
-                            self.resultLabel.text = "\(confidenceLevel)% its \(topResult!.identifier)"
+                            let rounded = Int(confidenceLevel * 100) / 100
+                            self.resultLabel.text = "\(rounded)% its \(topResult!.identifier)"
                             
                             
                         }
