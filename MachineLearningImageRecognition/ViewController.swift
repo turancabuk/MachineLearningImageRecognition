@@ -61,6 +61,15 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
                     }
                 }
             }
+            
+            let handler = VNImageRequestHandler(ciImage: image)
+            DispatchQueue.global(qos: .userInteractive).async {
+                do{
+                    try handler.perform([request])
+                }catch{
+                    print("error!")
+                }
+            }
         }
     }
     
